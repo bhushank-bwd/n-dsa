@@ -38,3 +38,9 @@ function findSecondLargest(arr) {
 findSecondLargest(arr);
 findSmallest(arr);
 findLargest(arr);
+// corner case
+// 1. empty array
+// 2. only one element ask interviewer
+// 3. - negative value
+// 4. duplicates
+// 5. infinite no of array
