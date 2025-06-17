@@ -44,3 +44,14 @@ function powerOfTwo(n) {
 
 console.log(powerOfTwo(144));
 console.log(powerOfTwo(256));
+
+function fibonacci(n) {
+  //   if (n == 0) return 0;
+  //   else if (n == 1) return 1;
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+console.log(fibonacci(5));
+console.log(fibonacci(8));
+// iteration is top down approach
+// recursion is bottom up approach
