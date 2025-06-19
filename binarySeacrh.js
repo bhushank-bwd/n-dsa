@@ -5,6 +5,7 @@ function search(arr, element) {
   let l = 0;
   let r = arr.length;
   while (r >= l) {
+    // use while when index is random just like right and left here
     let m = Math.floor((l + r) / 2);
     if (element === arr[m]) {
       return m;
