@@ -59,3 +59,67 @@ function myLinkedList() {
 ```
 
 - it initialize new linked list with 0 size
+
+### Add at head
+
+```js
+function addAtHead(val) {
+  let newNode = new node(vale);
+  newNode.next = this.head;
+  this.head = newNode;
+  this.size++;
+}
+```
+
+### Add at tail
+
+- create new node
+- reach last node
+- link last node -> new Node
+- handle corner case i.e. linked list is empty
+- increase size
+
+```js
+function addAtTail(val) {
+  let newNode = new node(val);
+  if (this.head == null) {
+    this.head = newNode;
+  } else {
+    let curr = this.head;
+    while (curr.next != null) {
+      curr = curr.next;
+    }
+    curr.next = newNode;
+  }
+}
+```
+
+### Add at index
+
+- create new node
+- reach at index-1 = current
+- newNode.next = curr.next
+- curr.next = newNode
+- handle corner case index == 0 or index == this.size
+- increase size if not corner case
+
+```js
+function addAtIndex(index, val) {
+  if (index == 0) {
+    this.addAtHead(val);
+    return;
+  } else if (index == this.size) {
+    this.addAtTail(vale);
+    return;
+  } else {
+    let newNode = new node(val);
+    let curr = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      curr = curr.next;
+    }
+    newNode.next = curr.next;
+    curr.next = newNode;
+    this.size++;
+  }
+}
+```
