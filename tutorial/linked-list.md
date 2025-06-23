@@ -153,3 +153,34 @@ function deleteAtIndex(index) {
 
 - only change next of index-1 node's next
 - reduce size
+
+## Find middle of linked list
+
+> if there are two middle then return second middle in case of even size linked list
+
+### Approach 1 -> Array
+
+- convert list into array
+- array[length/2] = middle of array
+
+### Approach 2
+
+> Fast and slow Pointer
+
+- 1->2->3->4->5->6->7->8->9->10->11->12
+- s->s->s->s->s->s->s
+- f->->f->->f->->f->->f->->f->->f->->f
+
+```js
+function findMiddle() {
+  let fast = head;
+  let slow = head;
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+  return slow;
+}
+```
+
+- always check function signature to check input parameter and return type
