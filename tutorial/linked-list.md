@@ -184,3 +184,19 @@ function findMiddle() {
 ```
 
 - always check function signature to check input parameter and return type
+
+## Reverse list
+
+```js
+function reverseLinkList(head) {
+  let prev = null;
+  let curr = head;
+  while (curr) {
+    let temp = curr.next; // take backup of next as link list will broke
+    curr.next = prev;
+    prev = curr;
+    curr = temp; // keep for next iteration if not null
+  }
+  return prev; // as prev becomes head after all iteration
+}
+```
