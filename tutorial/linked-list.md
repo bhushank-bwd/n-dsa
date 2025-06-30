@@ -42,7 +42,7 @@
 - **Value and reference** -> points to next node
 
 ```js
-function node(value) {
+function Node(value) {
   this.value = value;
   this.next = null;
 }
@@ -52,7 +52,7 @@ let newNode = new Node(value);
 ## Linked List
 
 ```js
-function myLinkedList() {
+function MyLinkedList() {
   this.head = null;
   this.size = 0;
 }
@@ -63,12 +63,12 @@ function myLinkedList() {
 ### Add at head
 
 ```js
-function addAtHead(val) {
-  let newNode = new node(vale);
+MyLinkedList.prototype.addAtHead = function (val) {
+  let newNode = new Node(val);
   newNode.next = this.head;
   this.head = newNode;
   this.size++;
-}
+};
 ```
 
 ### Add at tail
@@ -80,8 +80,8 @@ function addAtHead(val) {
 - increase size
 
 ```js
-function addAtTail(val) {
-  let newNode = new node(val);
+MyLinkedList.prototype.addAtTail = function (val) {
+  let newNode = new Node(val);
   if (this.head == null) {
     this.head = newNode;
   } else {
@@ -91,7 +91,8 @@ function addAtTail(val) {
     }
     curr.next = newNode;
   }
-}
+  this.size++;
+};
 ```
 
 ### Add at index
@@ -104,16 +105,16 @@ function addAtTail(val) {
 - increase size if not corner case
 
 ```js
-function addAtIndex(index, val) {
+MyLinkedList.prototype.addAtIndex = function (index, val) {
   if (index < 0 || index > this.size) return;
   if (index == 0) {
     this.addAtHead(val);
     return;
   } else if (index == this.size) {
-    this.addAtTail(vale);
+    this.addAtTail(val);
     return;
   } else {
-    let newNode = new node(val);
+    let newNode = new Node(val);
     let curr = this.head;
     for (let i = 0; i < index - 1; i++) {
       curr = curr.next;
@@ -122,18 +123,18 @@ function addAtIndex(index, val) {
     curr.next = newNode;
     this.size++;
   }
-}
+};
 ```
 
 ### Get Value from node
 
 ```js
-function getAtIndex(index) {
+MyLinkedList.prototype.getAtIndex = function (index) {
   if (index < 0 || index >= this.size) return -1;
   let curr = this.head;
   for (let i = 0; i < index; i++) curr = curr.next;
-  return curr.val;
-}
+  return curr.value;
+};
 ```
 
 ### Delete At Index
