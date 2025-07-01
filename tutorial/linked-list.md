@@ -140,7 +140,7 @@ MyLinkedList.prototype.getAtIndex = function (index) {
 ### Delete At Index
 
 ```js
-function deleteAtIndex(index) {
+MyLinkedList.prototype.deleteAtIndex = function (index) {
   if (index < 0 || index >= this.size) return;
   if (index === 0) this.head = this.head.next;
   else {
@@ -149,7 +149,7 @@ function deleteAtIndex(index) {
     curr.next = curr.next.next;
   }
   this.size--;
-}
+};
 ```
 
 - only change next of index-1 node's next
@@ -173,15 +173,15 @@ function deleteAtIndex(index) {
 - f->->f->->f->->f->->f->->f->->f->->f
 
 ```js
-function findMiddle() {
-  let fast = head;
-  let slow = head;
+MyLinkedList.prototype.findMiddle = function () {
+  let fast = this.head;
+  let slow = this.head;
   while (fast && fast.next) {
     fast = fast.next.next;
     slow = slow.next;
   }
   return slow;
-}
+};
 ```
 
 - always check function signature to check input parameter and return type
@@ -189,15 +189,16 @@ function findMiddle() {
 ## Reverse list
 
 ```js
-function reverseLinkList(head) {
+MyLinkedList.prototype.reverseLinkList = function () {
   let prev = null;
-  let curr = head;
+  let curr = this.head;
   while (curr) {
     let temp = curr.next; // take backup of next as link list will broke
     curr.next = prev;
     prev = curr;
     curr = temp; // keep for next iteration if not null
   }
-  return prev; // as prev becomes head after all iteration
-}
+  this.head = prev;
+  //   return prev; // as prev becomes head after all iteration
+};
 ```
