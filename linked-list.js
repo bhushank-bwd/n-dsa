@@ -53,7 +53,12 @@ MyLinkedList.prototype.getAtIndex = function (index) {
   for (let i = 0; i < index; i++) curr = curr.next;
   return curr.value;
 };
-
+MyLinkedList.prototype.getNodeAtIndex = function (index) {
+  if (index < 0 || index >= this.size) return -1;
+  let curr = this.head;
+  for (let i = 0; i < index; i++) curr = curr.next;
+  return curr;
+};
 MyLinkedList.prototype.deleteAtIndex = function (index) {
   if (index < 0 || index >= this.size) return;
   if (index === 0) this.head = this.head.next;
@@ -87,34 +92,38 @@ MyLinkedList.prototype.reverseLinkList = function () {
   //   return prev; // as prev becomes head after all iteration
 };
 
+MyLinkedList.prototype.isCycle = function () {
+  let seenNode = new Set();
+  let curr = this.head;
+  while (curr != null) {
+    if (seenNode.has(curr)) {
+      return true;
+    }
+    seenNode.add(curr);
+    curr = curr.next;
+  }
+  return false;
+};
+
 let ll = new MyLinkedList();
-ll.addAtHead(15);
-ll.addAtTail(25);
-ll.addAtTail(45);
-ll.addAtIndex(2, 35);
-console.log(
-  ll.getAtIndex(0),
-  ll.getAtIndex(1),
-  ll.getAtIndex(2),
-  ll.getAtIndex(3),
-  ll.getAtIndex(4)
-);
-console.log(ll);
+ll.addAtIndex(0, 1);
+ll.addAtIndex(1, 10);
+ll.addAtIndex(2, 20);
+ll.addAtIndex(3, 30);
+ll.addAtIndex(4, 40);
+ll.addAtIndex(5, 50);
 
-// console.log(ll.getAtIndex(2), ll.size);
-// ll.deleteAtIndex(2);
-// console.log(ll.getAtIndex(2), ll.size);
+let secondNode = ll.getNodeAtIndex(2);
+let lastNode = ll.getNodeAtIndex(ll.size - 1);
+console.log(secondNode, lastNode);
+lastNode.next = secondNode;
 
-// console.log(ll.findMiddle());
-// console.log(ll);
+let ll2 = new MyLinkedList();
+ll2.addAtIndex(0, 1);
+ll2.addAtIndex(1, 10);
+ll2.addAtIndex(2, 20);
+ll2.addAtIndex(3, 30);
+ll2.addAtIndex(4, 40);
+ll2.addAtIndex(5, 50);
 
-ll.reverseLinkList();
-// console.log(ll);
-
-console.log(
-  ll.getAtIndex(0),
-  ll.getAtIndex(1),
-  ll.getAtIndex(2),
-  ll.getAtIndex(3),
-  ll.getAtIndex(4)
-);
+console.log(ll, ll2, ll.isCycle(), ll2.isCycle());
