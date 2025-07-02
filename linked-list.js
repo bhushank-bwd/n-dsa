@@ -115,7 +115,6 @@ ll.addAtIndex(5, 50);
 
 let secondNode = ll.getNodeAtIndex(2);
 let lastNode = ll.getNodeAtIndex(ll.size - 1);
-console.log(secondNode, lastNode);
 lastNode.next = secondNode;
 
 let ll2 = new MyLinkedList();
@@ -126,4 +125,23 @@ ll2.addAtIndex(3, 30);
 ll2.addAtIndex(4, 40);
 ll2.addAtIndex(5, 50);
 
-console.log(ll, ll2, ll.isCycle(), ll2.isCycle());
+MyLinkedList.prototype.floydCycle = function () {
+  if (!this.head) return false;
+  let slow = this.head;
+  let fast = this.head.next; // taken next because in very first iteration while loop should not break;
+  while (fast != slow) {
+    if (!fast || !fast.next) return false;
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return true;
+};
+let ll3 = new MyLinkedList();
+console.log(
+  ll.isCycle(),
+  ll2.isCycle(),
+  ll3.isCycle(),
+  ll.floydCycle(),
+  ll2.floydCycle(),
+  ll3.floydCycle()
+);
