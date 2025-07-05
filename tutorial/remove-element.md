@@ -53,3 +53,32 @@ list1.printList();
 list2.printList();
 console.log(newHead1, newHead2);
 ```
+
+# Remove n<sup>th</sup> element from end with `two pass`
+
+- add sentinel node
+- find length
+- delete position = (length - n) + 1
+- prev = length - n
+- use for loop for finding prev
+
+```js
+function removeNthElement(list, n) {
+  list.addAtHead(null);
+  let head = list.head.next;
+  let length = 0;
+  while (head) {
+    head = head.next;
+    length++;
+  }
+  console.log(length);
+  let prevPosition = length - n;
+  let prev = list.head;
+  for (let i = 0; i < prevPosition; i++) {
+    prev = prev.next;
+  }
+  prev.next = prev.next.next;
+}
+removeNthElement(list1, 2);
+list1.printList();
+```

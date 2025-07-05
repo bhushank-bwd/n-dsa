@@ -184,7 +184,7 @@ list2.addAtIndex(2, 6);
 list2.addAtIndex(3, 3);
 
 list1.printList();
-list2.printList();
+// list2.printList();
 function removeElement(list, value) {
   list.addAtHead(null);
   let prev = list.head;
@@ -198,8 +198,24 @@ function removeElement(list, value) {
   }
   return list.head.next; // it will be head as sn alway at head
 }
-const newHead1 = removeElement(list1, 6);
-const newHead2 = removeElement(list2, 6);
+// const newHead1 = removeElement(list1, 6);
+// const newHead2 = removeElement(list2, 6);
+
+function removeNthElement(list, n) {
+  list.addAtHead(null);
+  let head = list.head.next;
+  let length = 0;
+  while (head) {
+    head = head.next;
+    length++;
+  }
+  console.log(length);
+  let prevPosition = length - n;
+  let prev = list.head;
+  for (let i = 0; i < prevPosition; i++) {
+    prev = prev.next;
+  }
+  prev.next = prev.next.next;
+}
+removeNthElement(list1, 2);
 list1.printList();
-list2.printList();
-console.log(newHead1, newHead2);
