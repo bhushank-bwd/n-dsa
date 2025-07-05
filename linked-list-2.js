@@ -2,6 +2,10 @@ function Node(value) {
   this.value = value;
   this.next = null;
 }
+function ListNode(value, next) {
+  this.value = value === undefined ? 0 : value;
+  this.next = next === undefined ? null : next;
+}
 function MyLinkedList() {
   this.head = null;
   this.size = 0;
@@ -282,6 +286,37 @@ list4.addAtIndex(5, 6);
 list4.addAtIndex(6, 7);
 list4.addAtIndex(7, 8);
 
-list4.printList();
-oddEvenList(list4);
-list4.printList();
+// list4.printList();
+// oddEvenList(list4);
+// list4.printList();
+
+function addTwoNumber(l1, l2) {
+  let carry = 0;
+  let ans = new ListNode();
+  let ansHead = ans;
+  while (l1 || l2 || carry) {
+    let sum = (l1?.value || 0) + (l2?.value || 0) + carry;
+    carry = Math.floor(sum / 10);
+    let digit = sum % 10;
+    let node = new ListNode(digit);
+    ans.next = node;
+    ans = ans.next;
+    l1 = l1?.next;
+    l2 = l2?.next;
+  }
+  while (ansHead) {
+    console.log(ansHead.value);
+    ansHead = ansHead.next;
+  }
+}
+let list5 = new MyLinkedList();
+list5.addAtIndex(0, 3);
+list5.addAtIndex(1, 4);
+list5.addAtIndex(2, 9);
+
+let list6 = new MyLinkedList();
+list6.addAtIndex(0, 4);
+list6.addAtIndex(1, 8);
+list6.addAtIndex(2, 1);
+list6.addAtIndex(3, 9);
+addTwoNumber(list5.head, list6.head);
