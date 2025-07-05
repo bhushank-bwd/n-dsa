@@ -209,7 +209,6 @@ function removeNthElement(list, n) {
     head = head.next;
     length++;
   }
-  console.log(length);
   let prevPosition = length - n;
   let prev = list.head;
   for (let i = 0; i < prevPosition; i++) {
@@ -217,5 +216,20 @@ function removeNthElement(list, n) {
   }
   prev.next = prev.next.next;
 }
-removeNthElement(list1, 2);
+// removeNthElement(list1, 2);
+// list1.printList();
+function removeNthElementOnePass(list, n) {
+  list.addAtHead(null);
+  let first = list.head;
+  for (let i = 0; i < n; i++) {
+    first = first.next;
+  }
+  let second = list.head;
+  while (first.next) {
+    second = second.next;
+    first = first.next;
+  }
+  second.next = second.next.next;
+}
+removeNthElementOnePass(list1, 3);
 list1.printList();

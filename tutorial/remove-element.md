@@ -82,3 +82,28 @@ function removeNthElement(list, n) {
 removeNthElement(list1, 2);
 list1.printList();
 ```
+
+# Remove n<sup>th</sup> element from end with `one pass`
+
+- add sentinel node
+- use two pinter
+- place first to sentinel + n using for
+- place second to sentinel
+- move both pointer one next
+- remove element using second pointer
+
+```js
+function removeNthElementOnePass(list, n) {
+  list.addAtHead(null);
+  let first = list.head;
+  for (let i = 0; i < n; i++) {
+    first = first.next;
+  }
+  let second = list.head;
+  while (first.next) {
+    second = second.next;
+    first = first.next;
+  }
+  second.next = second.next.next;
+}
+```
