@@ -183,7 +183,7 @@ list2.addAtIndex(1, 2);
 list2.addAtIndex(2, 6);
 list2.addAtIndex(3, 3);
 
-list1.printList();
+// list1.printList();
 // list2.printList();
 function removeElement(list, value) {
   list.addAtHead(null);
@@ -231,5 +231,28 @@ function removeNthElementOnePass(list, n) {
   }
   second.next = second.next.next;
 }
-removeNthElementOnePass(list1, 3);
-list1.printList();
+// removeNthElementOnePass(list1, 3);
+// list1.printList();
+function removeDuplicateFromSorted(list) {
+  let curr = list.head;
+  while (curr && curr.next) {
+    if (curr.value == curr.next.value) {
+      curr.next = curr.next.next;
+    } else {
+      curr = curr.next;
+    }
+  }
+}
+let list3 = new MyLinkedList();
+list3.addAtIndex(0, 1);
+list3.addAtIndex(1, 1);
+list3.addAtIndex(2, 1);
+list3.addAtIndex(3, 2);
+list3.addAtIndex(4, 3);
+list3.addAtIndex(5, 3);
+list3.addAtIndex(6, 4);
+list3.addAtIndex(7, 4);
+
+list3.printList();
+removeDuplicateFromSorted(list3);
+list3.printList();
