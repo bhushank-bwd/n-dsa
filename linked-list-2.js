@@ -253,6 +253,35 @@ list3.addAtIndex(5, 3);
 list3.addAtIndex(6, 4);
 list3.addAtIndex(7, 4);
 
-list3.printList();
-removeDuplicateFromSorted(list3);
-list3.printList();
+// list3.printList();
+// removeDuplicateFromSorted(list3);
+// list3.printList();
+
+function oddEvenList(list) {
+  if (!list.head || !list.head.next) return;
+  let odd = list.head;
+  let even = list.head.next;
+  let evenStart = even;
+
+  while (odd.next && even.next) {
+    odd.next = odd.next.next;
+    even.next = even.next.next;
+    odd = odd.next;
+    even = even.next;
+  }
+  odd.next = evenStart;
+}
+
+let list4 = new MyLinkedList();
+list4.addAtIndex(0, 1);
+list4.addAtIndex(1, 2);
+list4.addAtIndex(2, 3);
+list4.addAtIndex(3, 4);
+list4.addAtIndex(4, 5);
+list4.addAtIndex(5, 6);
+list4.addAtIndex(6, 7);
+list4.addAtIndex(7, 8);
+
+list4.printList();
+oddEvenList(list4);
+list4.printList();
