@@ -73,7 +73,27 @@ MyLinkedList.prototype.isPalindrome = function () {
   }
   return true;
 };
-
+MyLinkedList.prototype.getAtIndex = function (index) {
+  if (index < 0 || index >= this.size) return -1;
+  let curr = this.head;
+  for (let i = 0; i < index; i++) curr = curr.next;
+  return curr.value;
+};
+MyLinkedList.prototype.getNodeAtIndex = function (index) {
+  if (index < 0 || index >= this.size) return -1;
+  let curr = this.head;
+  for (let i = 0; i < index; i++) curr = curr.next;
+  return curr;
+};
+MyLinkedList.prototype.printList = function () {
+  let current = this.head;
+  let result = [];
+  while (current) {
+    result.push(current.value);
+    current = current.next;
+  }
+  console.log(result.join(" -> "));
+};
 let ll1 = new MyLinkedList();
 ll1.addAtHead(1);
 
@@ -97,10 +117,53 @@ ll4.addAtIndex(3, 3);
 let ll5 = new MyLinkedList();
 ll5.addAtHead(1);
 ll5.addAtIndex(1, 2);
+// console.log(
+//   ll1.isPalindrome(),
+//   ll2.isPalindrome(),
+//   ll3.isPalindrome(),
+//   ll4.isPalindrome(),
+//   ll5.isPalindrome()
+// );
+
+let intersectLL1 = new MyLinkedList();
+let intersectLL2 = new MyLinkedList();
+let intersectLL3 = new MyLinkedList();
+
+intersectLL1.addAtHead("a1");
+intersectLL1.addAtIndex(1, "a2");
+
+intersectLL2.addAtHead("c1");
+intersectLL2.addAtIndex(1, "c2");
+intersectLL2.addAtIndex(2, "c3");
+
+intersectLL3.addAtHead("b1");
+intersectLL3.addAtIndex(1, "b2");
+intersectLL3.addAtIndex(2, "b3");
+
+intersectLL3.getNodeAtIndex(intersectLL3.size - 1).next =
+  intersectLL2.getNodeAtIndex(0);
+intersectLL1.getNodeAtIndex(intersectLL1.size - 1).next =
+  intersectLL2.getNodeAtIndex(0);
+
+var isIntersect = function (headA, headB) {
+  let store = new Set();
+  while (headB) {
+    store.add(headB);
+    headB = headB.next;
+  }
+
+  while (headA) {
+    if (store.has(headA)) {
+      return headA;
+    }
+    headA = headA.next;
+  }
+  console.log("hello");
+  return null;
+};
 console.log(
-  ll1.isPalindrome(),
-  ll2.isPalindrome(),
-  ll3.isPalindrome(),
-  ll4.isPalindrome(),
-  ll5.isPalindrome()
+  intersectLL1,
+  intersectLL2,
+  intersectLL3,
+  isIntersect(intersectLL1.head, intersectLL3.head)
 );

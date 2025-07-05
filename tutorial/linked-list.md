@@ -202,3 +202,17 @@ MyLinkedList.prototype.reverseLinkList = function () {
   //   return prev; // as prev becomes head after all iteration
 };
 ```
+
+## Print list
+
+```js
+MyLinkedList.prototype.printList = function () {
+  let current = this.head;
+  let result = [];
+  while (current) {
+    result.push(current.value);
+    current = current.next;
+  }
+  console.log(result.join(" -> "));
+};
+```
