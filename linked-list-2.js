@@ -319,4 +319,78 @@ list6.addAtIndex(0, 4);
 list6.addAtIndex(1, 8);
 list6.addAtIndex(2, 1);
 list6.addAtIndex(3, 9);
-addTwoNumber(list5.head, list6.head);
+// addTwoNumber(list5.head, list6.head);
+
+function mergeSort(l1, l2) {
+  if (!l1) return l2;
+  if (!l2) return l1;
+
+  let curr = null;
+  if (l1.value < l2.value) {
+    curr = l1;
+    l1 = l1.next;
+  } else {
+    curr = l2;
+    l2 = l2.next;
+  }
+  let start = curr;
+  while (l1 && l2) {
+    if (l1.value < l2.value) {
+      curr.next = l1;
+      l1 = l1.next;
+    } else {
+      curr.next = l2;
+      l2 = l2.next;
+    }
+    curr = curr.next;
+  }
+  curr.next = l1 || l2;
+  return start;
+}
+let list7 = new MyLinkedList();
+list7.addAtIndex(0, 3);
+list7.addAtIndex(1, 4);
+list7.addAtIndex(2, 7);
+
+let list8 = new MyLinkedList();
+list8.addAtIndex(0, 5);
+list8.addAtIndex(1, 6);
+list8.addAtIndex(2, 8);
+list8.addAtIndex(3, 10);
+// let head = mergeSort(list7.head, list8.head);
+// while (head) {
+//   console.log(head.value);
+//   head = head.next;
+// }
+function mergeSortTwo(l1, l2) {
+  let curr = new ListNode();
+  let start = curr;
+
+  while (l1 && l2) {
+    if (l1.value < l2.value) {
+      curr.next = l1;
+      l1 = l1.next;
+    } else {
+      curr.next = l2;
+      l2 = l2.next;
+    }
+    curr = curr.next;
+  }
+  curr.next = l1 || l2;
+  return start;
+}
+let list9 = new MyLinkedList();
+list9.addAtIndex(0, 3);
+list9.addAtIndex(1, 4);
+list9.addAtIndex(2, 7);
+
+let list10 = new MyLinkedList();
+list10.addAtIndex(0, 5);
+list10.addAtIndex(1, 6);
+list10.addAtIndex(2, 8);
+list10.addAtIndex(3, 10);
+let head2 = mergeSort(list7.head, list8.head);
+while (head2) {
+  console.log(head2.value);
+  head2 = head2.next;
+}
