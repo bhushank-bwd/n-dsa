@@ -389,7 +389,39 @@ list10.addAtIndex(0, 5);
 list10.addAtIndex(1, 6);
 list10.addAtIndex(2, 8);
 list10.addAtIndex(3, 10);
-let head2 = mergeSort(list7.head, list8.head);
+// let head2 = mergeSort(list7.head, list8.head);
+// while (head2) {
+//   console.log(head2.value);
+//   head2 = head2.next;
+// }
+
+function rotate(head, k) {
+  if (!head || !head.next) return null;
+
+  let curr = head;
+  let length = 0;
+  while (curr) {
+    curr = curr.next;
+    length++;
+  }
+  k = k % length;
+
+  let s = head;
+  let f = head;
+  for (let i = 0; i < k; i++) {
+    f = f.next;
+  }
+  while (f.next) {
+    s = s.next;
+    f = f.next;
+  }
+  f.next = head;
+  let newHead = s.next;
+  s.next = null;
+  return newHead;
+}
+list10.printList();
+let head2 = rotate(list10.head, 2);
 while (head2) {
   console.log(head2.value);
   head2 = head2.next;
