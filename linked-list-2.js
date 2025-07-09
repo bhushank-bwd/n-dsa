@@ -453,4 +453,25 @@ function swapInPair(list) {
     dummy = dummy.next;
   }
 }
-swapInPair(list10);
+// swapInPair(list10);
+// let list11 = new MyLinkedList();
+// let list12 = new MyLinkedList();
+// list11.addAtIndex(0, 5);
+// swapInPair(list11);
+// swapInPair(list12);
+
+function swapPair(head) {
+  if (!head || !head.next) {
+    return head;
+  }
+  let r = head.next;
+  let l = head;
+  l.next = swapPair(r.next);
+  r.next = l;
+  return r;
+}
+let head3 = swapPair(list10.head);
+while (head3) {
+  console.log(475, head3.value);
+  head3 = head3.next;
+}
