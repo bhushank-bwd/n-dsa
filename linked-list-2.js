@@ -389,6 +389,8 @@ list10.addAtIndex(0, 5);
 list10.addAtIndex(1, 6);
 list10.addAtIndex(2, 8);
 list10.addAtIndex(3, 10);
+list10.addAtIndex(4, 12);
+list10.addAtIndex(5, 15);
 // let head2 = mergeSort(list7.head, list8.head);
 // while (head2) {
 //   console.log(head2.value);
@@ -421,8 +423,34 @@ function rotate(head, k) {
   return newHead;
 }
 list10.printList();
-let head2 = rotate(list10.head, 2);
-while (head2) {
-  console.log(head2.value);
-  head2 = head2.next;
+// let head2 = rotate(list10.head, 2);
+// while (head2) {
+//   console.log(head2.value);
+//   head2 = head2.next;
+// }
+function swapInPair(list) {
+  if (!list.head || !list.head.next) {
+    list.printList();
+    return;
+  }
+  list.addAtHead(null);
+  let dummy = list.head;
+  let p = list.head;
+  let c = p.next;
+  let n = c.next;
+
+  while (c && n) {
+    p.next = n;
+    c.next = n.next;
+    n.next = c;
+    // ... don't change order
+    p = c;
+    c = p.next;
+    n = c && c.next;
+  }
+  while (dummy) {
+    console.log(dummy.value);
+    dummy = dummy.next;
+  }
 }
+swapInPair(list10);
