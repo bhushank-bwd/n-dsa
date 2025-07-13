@@ -48,6 +48,35 @@ function findWordContainingChar(wordArr, char) {
   }
   return res;
 }
-console.log(
-  findWordContainingChar(["abc", "aa", "btu", "sdsda", "sdsffdg"], "a")
-);
+// console.log(
+//   findWordContainingChar(["abc", "aa", "btu", "sdsda", "sdsffdg"], "a")
+// );
+function findStoneJewel(stones, jewels) {
+  let count = 0;
+
+  for (let i = 0; i < stones.length; i++) {
+    for (let j = 0; j < jewels.length; j++) {
+      if (stones[i] === jewels[j]) {
+        count++;
+        break;
+      }
+    }
+  }
+
+  return count;
+}
+function findStoneJewel1(stones, jewels) {
+  let count = 0;
+  let jewelSet = new Set();
+  for (let i = 0; i < jewels.length; i++) {
+    jewelSet.add(jewels[i]);
+  }
+  for (let i = 0; i < stones.length; i++) {
+    if (jewelSet.has(stones[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(findStoneJewel("aAAbbbB", "aA"), findStoneJewel("z", "ZZZAAAA"));
+console.log(findStoneJewel1("aAAbbbB", "aA"), findStoneJewel1("z", "ZZZAAAA"));
