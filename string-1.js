@@ -78,5 +78,32 @@ function findStoneJewel1(stones, jewels) {
   }
   return count;
 }
-console.log(findStoneJewel("aAAbbbB", "aA"), findStoneJewel("z", "ZZZAAAA"));
-console.log(findStoneJewel1("aAAbbbB", "aA"), findStoneJewel1("z", "ZZZAAAA"));
+// console.log(findStoneJewel("aAAbbbB", "aA"), findStoneJewel("z", "ZZZAAAA"));
+// console.log(findStoneJewel1("aAAbbbB", "aA"), findStoneJewel1("z", "ZZZAAAA"));
+
+function findMaxVowelAndConsonant(word) {
+  let countMap = {};
+  for (let i = 0; i < word.length; i++) {
+    countMap[word[i]] = !countMap[word[i]] ? 1 : ++countMap[word[i]];
+  }
+  let vowels = ["a", "e", "i", "o", "u"];
+  let maxVowelCount = 0;
+  let maxConsonantCount = 0;
+
+  let countMapKeys = Object.keys(countMap);
+
+  for (let i = 0; i < countMapKeys.length; i++) {
+    const element = countMapKeys[i];
+    if (vowels.includes(element)) {
+      maxVowelCount = Math.max(countMap[element], maxVowelCount); // use if for simple beginner level
+    } else {
+      maxConsonantCount = Math.max(countMap[element], maxConsonantCount); // use if for simple beginner level
+    }
+  }
+  return maxConsonantCount + maxVowelCount;
+}
+
+console.log(
+  findMaxVowelAndConsonant("successes"),
+  findMaxVowelAndConsonant("aeiaeia")
+);
