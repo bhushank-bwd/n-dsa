@@ -103,7 +103,59 @@ function findMaxVowelAndConsonant(word) {
   return maxConsonantCount + maxVowelCount;
 }
 
+// console.log(
+//   findMaxVowelAndConsonant("successes"),
+//   findMaxVowelAndConsonant("aeiaeia")
+// );
+function findBalancedRL(s) {
+  let R = 0;
+  let L = 0;
+  let count = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "R") {
+      ++R;
+    } else {
+      ++L;
+    }
+    if (L == R) {
+      L = R = 0;
+      ++count;
+    }
+  }
+  return count;
+}
+function findBalancedRL1(s) {
+  let temp = 0;
+  let count = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "R") {
+      ++temp;
+    } else {
+      --temp;
+    }
+    if (temp == 0) {
+      ++count;
+    }
+  }
+  return count;
+}
+// console.log(findBalancedRL("RLRRLLRLRL"), findBalancedRL("RRRRLLLL"));
+// console.log(findBalancedRL1("RLRRLLRLRL"), findBalancedRL1("RRRRLLLL"));
+
+function reverseStringByKAnd2K(s, k) {
+  s = s.split("");
+  for (let x = 0; x < s.length; x = x + 2 * k) {
+    let mid = Math.floor(k / 2);
+    for (let i = 0; i < mid; i++) {
+      let temp = s[x + k - i - 1];
+      s[x + k - i - 1] = s[x + i];
+      s[x + i] = temp;
+    }
+  }
+  return s.join("");
+}
 console.log(
-  findMaxVowelAndConsonant("successes"),
-  findMaxVowelAndConsonant("aeiaeia")
+  reverseStringByKAnd2K("ABCDEFGH", 2),
+  reverseStringByKAnd2K("ABCDEFGHIJ", 2),
+  reverseStringByKAnd2K("ABCDEFGHI", 2)
 );
