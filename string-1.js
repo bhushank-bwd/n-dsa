@@ -154,8 +154,50 @@ function reverseStringByKAnd2K(s, k) {
   }
   return s.join("");
 }
+// console.log(
+//   reverseStringByKAnd2K("ABCDEFGH", 2),
+//   reverseStringByKAnd2K("ABCDEFGHIJ", 2),
+//   reverseStringByKAnd2K("ABCDEFGHI", 2)
+// );
+
+function isPalindrome(s) {
+  s = s.toLowerCase();
+  let filteredString = "";
+  let reverseString = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i].match(/[a-z0-9]/i)) {
+      filteredString = filteredString + s[i];
+      reverseString = s[i] + reverseString;
+    }
+  }
+  console.log(reverseString, filteredString);
+  return reverseString === filteredString;
+}
+function isPalindrome1(s) {
+  s = s.toLowerCase();
+  let i = 0;
+  let j = s.length - 1;
+  while (i < j) {
+    if (!s[i].match(/[a-z0-9]/i)) {
+      ++i;
+    } else if (!s[j].match(/[a-z0-9]/i)) {
+      --j;
+    } else if (s[i] == s[j]) {
+      ++i;
+      --j;
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
 console.log(
-  reverseStringByKAnd2K("ABCDEFGH", 2),
-  reverseStringByKAnd2K("ABCDEFGHIJ", 2),
-  reverseStringByKAnd2K("ABCDEFGHI", 2)
+  isPalindrome("race a car"),
+  isPalindrome(" "),
+  isPalindrome("A man, a plan, a canal:Panama")
+);
+console.log(
+  isPalindrome1("race a car"),
+  isPalindrome1(" "),
+  isPalindrome1("A man, a plan, a canal:Panama")
 );
