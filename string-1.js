@@ -191,13 +191,71 @@ function isPalindrome1(s) {
   }
   return true;
 }
+// console.log(
+//   isPalindrome("race a car"),
+//   isPalindrome(" "),
+//   isPalindrome("A man, a plan, a canal:Panama")
+// );
+// console.log(
+//   isPalindrome1("race a car"),
+//   isPalindrome1(" "),
+//   isPalindrome1("A man, a plan, a canal:Panama")
+// );
+
+function largestOddInString(s) {
+  let n = s.length - 1;
+  while (n >= 0) {
+    if (s[n] % 2 == 1) {
+      return s.substring(0, n + 1);
+    }
+    --n;
+  }
+  return "";
+}
+// console.log(
+//   largestOddInString("31217"),
+//   largestOddInString("4206"),
+//   largestOddInString("154568")
+// );
+function findLongestPrefix(str) {
+  let x = 0;
+  while (x < str[0].length) {
+    let ch = str[0][x];
+    for (let i = 1; i < str.length; i++) {
+      if (ch != str[i][x] || x == str[i].length) {
+        return str[0].substring(0, x);
+      }
+    }
+    ++x;
+  }
+  return str[0];
+}
+// console.log(findLongestPrefix(["flower", "flight", "flow", "fl"]));
+// console.log(findLongestPrefix(["flower", "fl", "flight", "flow"]));
+// console.log(findLongestPrefix(["abc", "pqr"]));
+
+function isAnagram(s, t) {
+  if (t.length !== s.length) return false;
+
+  let map = {};
+  for (let i = 0; i < s.length; i++) {
+    if (!map[s[i]]) {
+      map[s[i]] = 1;
+    } else {
+      ++map[s[i]];
+    }
+  }
+  for (let j = 0; j < t.length; j++) {
+    if (!map[t[j]] || map[t[j]] < 0) {
+      return false;
+    } else {
+      map[t[j]]--;
+    }
+  }
+  return true;
+}
 console.log(
-  isPalindrome("race a car"),
-  isPalindrome(" "),
-  isPalindrome("A man, a plan, a canal:Panama")
-);
-console.log(
-  isPalindrome1("race a car"),
-  isPalindrome1(" "),
-  isPalindrome1("A man, a plan, a canal:Panama")
+  isAnagram("anagram", "nagaram"),
+  isAnagram("anagram", "anag"),
+  isAnagram("anagram", "anagaam")
 );
