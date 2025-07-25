@@ -16,3 +16,11 @@
 
 - in loop increase level(++) for `(` and decrease level(--) for `)`
 - meanwhile `before decrease` element and `after increase` element put char in ans if `level > 1`
+
+## Evaluate Reverse Polish Notation
+
+- For Loop
+  - If operator get last two element by pop and perform operation(by map/eval) and push result in stack
+    - Tak care of string and number
+  - if number then push it into stack
+- return top
