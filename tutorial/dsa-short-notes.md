@@ -24,3 +24,56 @@
     - Tak care of string and number
   - if number then push it into stack
 - return top
+
+## Next Greater Element
+
+- Num1=[] Num2=[] num1 is subset of num2 and All element of array is unique
+- num1Len != num2Len
+- Find next greater element of each num1 element in num2, -1 if not found
+- last has -1 and push it into stack and map
+- Find each num2 element greater next element
+
+  - for loop from last second element to first element
+  - while on stack.length
+    - if top < current element then pop
+    - if top > current then map top to current element
+  - stack.length==0 then map -1 to current element
+  - push element in stack
+
+- Store above in map
+- Find `NGE` in map for num1
+
+## Daily Temperatures
+
+> Wait for next warmer days
+
+- num array with duplicate and keep next n warmer days if not then 0
+- initialize num length ans with 0
+- push last index in stack
+- for loop from last second element to first element
+  - while stack length
+    - num[top]<=num[i] then pop
+    - else ans[i] = top-1
+  - stack length = 0 then ans[i] = 0
+  - push i in stack
+- return i
+
+## Next greater Element
+
+### Using Double Array
+
+- double array
+- ans with -1 for array length
+- stack push last element
+- for loop from last second element to first element
+  - while stack length
+    - current element >= top then pop
+    - else current element = top in ans and break
+  - push current element in stack
+- return ans slicing half length
+
+### Without double array
+
+- for loop with 2n-2
+- whenever using for index mod it with n that is length of array
+- no slice of ans needed
