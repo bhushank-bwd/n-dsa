@@ -8,6 +8,11 @@
 ## Remove Outer most parentheses
 
 - Mark level of nesting
-- remove 0 level nesting
+- remove 0(index-0 length-1) level nesting
 - in loop push for `(` and pop for `)`
 - meanwhile `before popping` element and `after pushing` element put char in ans if `length > 1`
+
+## Remove Outer most parentheses without stack
+
+- in loop increase level(++) for `(` and decrease level(--) for `)`
+- meanwhile `before decrease` element and `after increase` element put char in ans if `level > 1`
