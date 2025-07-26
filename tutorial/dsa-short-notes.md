@@ -77,3 +77,14 @@
 - for loop with 2n-2
 - whenever using for index mod it with n that is length of array
 - no slice of ans needed
+
+## Rotten Oranges
+
+- push indexes of all rotten oranges[2] in queue
+- maxMinute = o
+- while queue length
+  - current element [x,y,level] = queue shift
+  - check for all 4 adjacent nodes(with index existed) that has 1 and push in queue(x,y,level+1)
+  - check max maxMinute and level
+- if any 1 exists then return -1
+- return maxMinute
