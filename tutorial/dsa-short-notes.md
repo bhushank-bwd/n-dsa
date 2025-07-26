@@ -142,3 +142,10 @@
   - if M is bad Move L with 1
   - else R = M
 - return R
+
+## Any Peak Element
+
+- use while rule L<R
+  - if M+1 element greater than M Move L with 1
+  - else R = M
+- return L
