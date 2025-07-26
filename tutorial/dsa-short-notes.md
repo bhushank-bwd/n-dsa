@@ -126,3 +126,19 @@
       - yes Move L
       - no Move R
 - return -1
+
+## While Rule
+
+### First Case
+
+- L<R; L=M+1; R=M;L!=R;
+- L<=R; L=M+1;R=M-1; L==R;
+- L<=R; L=M+1;R=M-1;L<M<R;
+- L<R-1;l+1<r; L=M+1;R=M-1;L<M<R;
+
+## First Bad version
+
+- use while rule L<R
+  - if M is bad Move L with 1
+  - else R = M
+- return R
