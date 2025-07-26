@@ -88,3 +88,41 @@
   - check max maxMinute and level
 - if any 1 exists then return -1
 - return maxMinute
+
+# Binary search algorithm
+
+## finding square root
+
+- square root of x
+  - x < 2 then return x
+  - x >= 2 then square root of x never exceeds x/2
+- while range 2 .. x/2
+- while
+  - l<=r
+  - m = Math.Floor (l+r)/2
+  - x = m<sup>2</sup> return m
+  - x > m<sup>2</sup> l=m+1
+  - else r=m-1
+- return r
+
+## finding middle element best practice
+
+- middle = (left + right) /2
+  - (left + right) can goes overflow due to data limitation in some lang.
+
+> middle = left + ((right-left)/2)
+
+## Search in rotational search list
+
+- L=0; R=lastIndex
+- While L<=R
+  - Find M and if target match then return M
+  - If Find Left is sorted L<=M
+    - Find Target is in left by comparing left and middle
+      - yes Move R
+      - no Move L
+  - ELSE
+    - Find the target second half by comparing middle and right
+      - yes Move L
+      - no Move R
+- return -1
