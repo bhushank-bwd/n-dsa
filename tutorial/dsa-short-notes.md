@@ -149,3 +149,12 @@
   - if M+1 element greater than M Move L with 1
   - else R = M
 - return L
+
+## Find minimum element in rotational sorted array
+
+- use while of L<=R
+  - if L element <= R element return L element
+    - this handle sorted and single element array case
+  - if M element smaller than M-1 then return M element
+  - if left is unsorted then move R to middle previous
+  - else move L to next of middle
