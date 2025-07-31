@@ -158,3 +158,18 @@
   - if M element smaller than M-1 then return M element
   - if left is unsorted then move R to middle previous
   - else move L to next of middle
+
+## Find First & Last Position in Sorted Array
+
+- perform 2 binary search operation to get start and end
+- start
+  - use while L < R rule
+    - if middle less than target place L to next of middle
+    - else place R to middle
+    - return L if lth element is target
+- end
+  - use while L < R rule
+    - use ceil to find middle to avoid infinite loop
+    - if middle greater than target place R to previous of middle
+    - else place L to middle
+    - return L if lth element is target
