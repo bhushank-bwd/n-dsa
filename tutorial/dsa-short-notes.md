@@ -173,3 +173,18 @@
     - if middle greater than target place R to previous of middle
     - else place L to middle
     - return L if lth element is target
+
+### Second Approach
+
+- perform 2 binary search operation to get start and end
+- start
+  - use while L <= R rule
+    - if middle == target then keep ans[0] = M and place R to previous of middle
+    - else if middle is less than target place L to next of middle
+    - else place R to previous of middle
+- start
+  - use while L <= R rule
+    - if middle == target then keep ans[1] = M and place L to next of middle
+    - else if middle is less than target place L to next of middle
+    - else place R to previous of middle
+- return ans

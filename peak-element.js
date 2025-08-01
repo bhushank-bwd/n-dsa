@@ -55,5 +55,34 @@ function searchRange(arr, target) {
   if (arr[L] === target) ans[1] = L;
   return ans;
 }
-console.log(searchRange([0, 1, 1, 2, 2, 2, 2, 3, 3, 5], 2));
-console.log(searchRange([0, 1, 1, 2, 2, 2, 3, 3, 5], 12));
+// console.log(searchRange([0, 1, 1, 2, 2, 2, 2, 3, 3, 5], 2));
+// console.log(searchRange([0, 1, 1, 2, 2, 2, 3, 3, 5], 12));
+
+function searchRange1(arr, target) {
+  let L = 0;
+  let R = arr.length - 1;
+  let ans = [-1, -1];
+
+  while (L <= R) {
+    let M = L + Math.floor((R - L) / 2);
+    if (arr[M] === target) {
+      ans[0] = M;
+      R = M - 1;
+    } else if (arr[M] < target) L = M + 1;
+    else R = M - 1;
+  }
+  L = 0;
+  R = arr.length - 1;
+  while (L <= R) {
+    let M = L + Math.floor((R - L) / 2);
+    if (arr[M] === target) {
+      ans[1] = M;
+      L = M + 1;
+    } else if (arr[M] < target) L = M + 1;
+    else R = M - 1;
+  }
+
+  return ans;
+}
+console.log(searchRange1([0, 1, 1, 2, 2, 2, 2, 3, 3, 5], 2));
+console.log(searchRange1([0, 1, 1, 2, 2, 2, 3, 3, 5], 12));
