@@ -188,3 +188,10 @@
     - else if middle is less than target place L to next of middle
     - else place R to previous of middle
 - return ans
+
+## Find Peak in a Mountain Array
+
+- use L < R rule
+  - if middle next element is greater than middle then peak may at next to middle Place L to next off middle
+  - else peak at previous to middle(including middle) so place R to M
+- return R or L

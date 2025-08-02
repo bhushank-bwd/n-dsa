@@ -84,5 +84,22 @@ function searchRange1(arr, target) {
 
   return ans;
 }
-console.log(searchRange1([0, 1, 1, 2, 2, 2, 2, 3, 3, 5], 2));
-console.log(searchRange1([0, 1, 1, 2, 2, 2, 3, 3, 5], 12));
+// console.log(searchRange1([0, 1, 1, 2, 2, 2, 2, 3, 3, 5], 2));
+// console.log(searchRange1([0, 1, 1, 2, 2, 2, 3, 3, 5], 12));
+
+function findPeakInMountain(arr) {
+  let L = 0;
+  let R = arr.length - 1;
+  while (L < R) {
+    let M = L + Math.floor((R - L) / 2);
+    if (arr[M] < arr[M + 1]) {
+      L = M + 1;
+    } else {
+      R = M;
+    }
+  }
+  return L;
+}
+
+console.log(findPeakInMountain([0, 1, 0]));
+console.log(findPeakInMountain([0, 1, 2, 4, 6, 11, 7, 3, 2, 1]));
