@@ -195,3 +195,11 @@
   - if middle next element is greater than middle then peak may at next to middle Place L to next off middle
   - else peak at previous to middle(including middle) so place R to M
 - return R or L
+
+## Single Element in a Sorted Array
+
+- use while of L <= R
+  - find middle is pair previous/next
+    - find right and left count who is odd count excluding pair
+    - adjust L and R as per pair with +- 1/2
+  - else return middle
