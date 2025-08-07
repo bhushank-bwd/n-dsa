@@ -11,4 +11,37 @@ function findTwoSum(arr, target) {
     }
   }
 }
-console.log(findTwoSum([1, 4, 1, 11, 23, 45, 17], 15));
+// console.log(findTwoSum([1, 4, 1, 11, 23, 45, 17], 15));
+
+function twoSum(arr, target) {
+  let i = 0;
+  let j = arr.length - 1;
+  while (i < j) {
+    let sum = arr[i] + arr[j];
+    if (sum > target) {
+      --j;
+    } else if (sum < target) {
+      ++i;
+    } else {
+      return [i, j];
+    }
+  }
+}
+console.log(twoSum([1, 2, 5, 7, 12], 9), twoSum([1, 2, 5, 7, 12], 8));
+
+function isSubsequence(s, t) {
+  let i = 0;
+  let j = 0;
+  while (j < t.length) {
+    if (s[i] == t[j]) {
+      ++i;
+    }
+    ++j;
+  }
+  return i == s.length;
+}
+console.log(
+  isSubsequence("adg", "abdfgn"),
+  isSubsequence("adn", "abdfgn"),
+  isSubsequence("agd", "abdfgn")
+);
