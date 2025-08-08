@@ -27,7 +27,7 @@ function twoSum(arr, target) {
     }
   }
 }
-console.log(twoSum([1, 2, 5, 7, 12], 9), twoSum([1, 2, 5, 7, 12], 8));
+// console.log(twoSum([1, 2, 5, 7, 12], 9), twoSum([1, 2, 5, 7, 12], 8));
 
 function isSubsequence(s, t) {
   let i = 0;
@@ -40,8 +40,30 @@ function isSubsequence(s, t) {
   }
   return i == s.length;
 }
+// console.log(
+//   isSubsequence("adg", "abdfgn"),
+//   isSubsequence("adn", "abdfgn"),
+//   isSubsequence("agd", "abdfgn")
+// );
+
+function findStringIndex(needle, heyStack) {
+  let n = needle.length;
+  let h = heyStack.length;
+
+  for (let i = 0; i <= h - n; i++) {
+    let j;
+    for (j = 0; j < n; j++) {
+      if (heyStack[i + j] != needle[j]) {
+        break;
+      }
+    }
+    if (j == n) return i;
+  }
+
+  return -1;
+}
 console.log(
-  isSubsequence("adg", "abdfgn"),
-  isSubsequence("adn", "abdfgn"),
-  isSubsequence("agd", "abdfgn")
+  findStringIndex("abc", "aabcabcd"),
+  findStringIndex("bcd", "aabcabcd"),
+  findStringIndex("abcde", "aabcabcd")
 );

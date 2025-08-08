@@ -23,3 +23,12 @@
     - increase i
   - increase j
 - return i == s.length
+
+## Find Index of First Occurrence in String
+
+- Get heyStack and needle length
+- run for i loop for i <= h-n
+  - run j for loop with needle length
+    - compare h[i+j] to needle[j] break if mismatch
+  - return i if j==n
+- return -
