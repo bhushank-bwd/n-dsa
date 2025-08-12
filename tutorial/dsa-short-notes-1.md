@@ -32,3 +32,11 @@
     - compare h[i+j] to needle[j] break if mismatch
   - return i if j==n
 - return -
+
+## Find Intersect of two linked list
+
+- Find length m,n
+- keep first headA of min length using swap
+- keep second pointer at difference of length
+- while both pointer as not same move to next
+- return any pointer

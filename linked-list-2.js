@@ -200,7 +200,7 @@ function removeElement(list, value) {
       prev = prev.next;
     }
   }
-  return list.head.next; // it will be head as sn alway at head
+  return list.head.next; // it will be head as sn always at head
 }
 // const newHead1 = removeElement(list1, 6);
 // const newHead2 = removeElement(list2, 6);
@@ -471,7 +471,51 @@ function swapPair(head) {
   return r;
 }
 let head3 = swapPair(list10.head);
-while (head3) {
-  console.log(475, head3.value);
-  head3 = head3.next;
+// while (head3) {
+//   console.log(475, head3.value);
+//   head3 = head3.next;
+// }
+function isIntersect2(headA, headB) {
+  let pA = headA;
+  let pB = headB;
+  let n = 0;
+  let m = 0;
+  while (pA) {
+    pA = pA.next;
+    ++n;
+  }
+  while (pB) {
+    pB = pB.next;
+    ++m;
+  }
+  // keep fist list small
+  if (n > m) {
+    let temp = headA;
+    headA = headB;
+    headB = temp;
+  }
+  let diff = Math.abs(n - m);
+  pA = headA;
+  pB = headB;
+  for (let i = 0; i < diff; i++) {
+    pB = pB.next;
+  }
+  while (pB !== pA) {
+    pB = pB.next;
+    pA = pA.next;
+  }
+  return pA;
 }
+
+function isIntersect3(headA, headB) {
+  let pA = headA;
+  let pB = headB;
+  while (pB !== pA) {
+    pB = pB ? pB.next : headA;
+    pA = pA ? pA.next : headB;
+  }
+  return pA;
+}
+console.log(isIntersect(intersectLL1.head, intersectLL3.head));
+console.log(isIntersect2(intersectLL1.head, intersectLL3.head));
+console.log(isIntersect3(intersectLL1.head, intersectLL3.head));
