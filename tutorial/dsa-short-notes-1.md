@@ -40,3 +40,11 @@
 - keep second pointer at difference of length
 - while both pointer as not same move to next
 - return any pointer
+
+## Find Max Water
+
+- i at start j=end
+- while i < j
+  - find area by min of i/j element \* j-i
+  - keep max area
+  - increment/decrement index by min element between index

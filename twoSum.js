@@ -62,8 +62,26 @@ function findStringIndex(needle, heyStack) {
 
   return -1;
 }
-console.log(
-  findStringIndex("abc", "aabcabcd"),
-  findStringIndex("bcd", "aabcabcd"),
-  findStringIndex("abcde", "aabcabcd")
-);
+// console.log(
+//   findStringIndex("abc", "aabcabcd"),
+//   findStringIndex("bcd", "aabcabcd"),
+//   findStringIndex("abcde", "aabcabcd")
+// );
+
+function findMaxWater(arr) {
+  let i = 0;
+  let j = arr.length - 1;
+
+  let area = 0;
+  while (i < j) {
+    let tempArea = Math.min(arr[i], arr[j]) * (j - i);
+    area = Math.max(tempArea, area);
+    if (arr[i] > arr[j]) {
+      --j;
+    } else {
+      ++i;
+    }
+  }
+  return area;
+}
+console.log(findMaxWater([1, 5, 4, 3, 8, 6, 5, 6]));
