@@ -1,14 +1,14 @@
-let arr = [11, 7, 15, 3];
+let arr = [1, 7, 9, 11, 15];
 let target = 22;
 let ans;
-let map = {};
-for (let i = 0; i < arr.length; i++) {
-  map[arr[i]] = i;
-}
-for (let i = 0; i < arr.length; i++) {
-  let targetElement = target - arr[i];
-  if (targetElement in map && map[targetElement] != i) {
-    ans = [i, map[targetElement]];
+let i = 0;
+let j = arr.length - 1;
+while (i < j) {
+  let sum = arr[i] + arr[j];
+  if (sum > target) --j;
+  else if (sum < target) ++i;
+  else {
+    ans = [i, j];
     break;
   }
 }
