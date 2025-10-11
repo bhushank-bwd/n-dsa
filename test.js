@@ -1,15 +1,13 @@
-let arr = [1, 7, 9, 11, 15];
-let target = 22;
-let ans;
-let i = 0;
-let j = arr.length - 1;
-while (i < j) {
-  let sum = arr[i] + arr[j];
-  if (sum > target) --j;
-  else if (sum < target) ++i;
-  else {
-    ans = [i, j];
-    break;
+let s = "bad";
+let t = "ahbgdc";
+
+function isSubSequence(s, t) {
+  let i = 0;
+  let j = 0;
+  while (j < t.length) {
+    if (s[i] == t[j]) ++i;
+    ++j;
   }
+  return i == s.length;
 }
-console.log(ans);
+console.log(isSubSequence(s, t));
