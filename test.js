@@ -1,13 +1,18 @@
-let s = "bad";
-let t = "ahbgdc";
+let needle = "sadal";
+let haystack = "sadbutsada";
 
-function isSubSequence(s, t) {
-  let i = 0;
-  let j = 0;
-  while (j < t.length) {
-    if (s[i] == t[j]) ++i;
-    ++j;
+function firstIndexOfString(needle, haystack) {
+  let m = needle.length;
+  let n = haystack.length;
+
+  for (let i = 0; i <= n - m; i++) {
+    let j = 0;
+    for (j = 0; j < m; j++) {
+      if (haystack[i + j] !== needle[j]) break;
+    }
+    if (j == m) return i;
   }
-  return i == s.length;
+
+  return -1;
 }
-console.log(isSubSequence(s, t));
+console.log(firstIndexOfString(needle, haystack));
