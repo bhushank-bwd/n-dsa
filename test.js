@@ -1,18 +1,13 @@
-let needle = "sadal";
-let haystack = "sadbutsada";
-
-function firstIndexOfString(needle, haystack) {
-  let m = needle.length;
-  let n = haystack.length;
-
-  for (let i = 0; i <= n - m; i++) {
-    let j = 0;
-    for (j = 0; j < m; j++) {
-      if (haystack[i + j] !== needle[j]) break;
+let arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+function removeElement(nums) {
+  let x = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > nums[x]) {
+      x = x + 1;
+      nums[x] = nums[i];
     }
-    if (j == m) return i;
   }
-
-  return -1;
+  return nums;
 }
-console.log(firstIndexOfString(needle, haystack));
+arr = removeElement(arr);
+console.log(arr);
