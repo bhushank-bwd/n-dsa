@@ -1,3 +1,20 @@
+# Reverse String
+
+## Input
+
+- Array of string char `["h", "e", "l", "l", "o" ]`
+
+## Output
+
+- Array of char `["o", "l", "l", "e", "h" ]`
+
+## Code
+
+- find mid using math floor
+- run loop through till mid
+  - swap (i,n-1-i)
+
+```js
 let arr = ["h", "e", "l", "l", "o"];
 let arr2 = ["a", "b", "c", "d", "e", "f"];
 function reverseString(characters) {
@@ -13,3 +30,4 @@ function reverseString(characters) {
 let reverseChar = reverseString(arr);
 let reverseChar2 = reverseString(arr2);
 console.log(reverseChar, reverseChar2);
+```
