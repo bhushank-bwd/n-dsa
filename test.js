@@ -1,12 +1,10 @@
-let arr = [3, 1, 0, 4, 2];
+let arr = [3, 7, 9, 1, 1, 3, 2, 2, 7];
 
-function missingNumber(arr) {
-  const length = arr.length;
-  const totalSum = (length * (length + 1)) / 2;
-  let partialSum = 0;
+function singleNumber(arr) {
+  let xor = 0;
   for (let i = 0; i < arr.length; i++) {
-    partialSum = partialSum + arr[i];
+    xor = xor ^ arr[i];
   }
-  return totalSum - partialSum;
+  return xor;
 }
-console.log(missingNumber(arr));
+console.log(singleNumber(arr));
