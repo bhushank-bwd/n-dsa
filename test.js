@@ -1,10 +1,29 @@
-let arr = [3, 7, 9, 1, 1, 3, 2, 2, 7];
-
-function singleNumber(arr) {
-  let xor = 0;
-  for (let i = 0; i < arr.length; i++) {
-    xor = xor ^ arr[i];
+let k = 5;
+function printN(n) {
+  if (n == 0) {
+    return;
   }
-  return xor;
+  console.log(n);
+  printN(n--);
 }
-console.log(singleNumber(arr));
+// printN(5);
+// printTillN(1);
+
+function printTillN(n) {
+  if (n > k) {
+    return;
+  }
+  console.log(n);
+  printTillN(++n);
+}
+
+function sumN(n) {
+  if (n == 1) return 1;
+  return n + sumN(n - 1);
+}
+// console.log(sumN(7));
+function factorial(n) {
+  if (n == 1) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5));
