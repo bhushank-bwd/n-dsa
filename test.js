@@ -1,7 +1,13 @@
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
+let arr = [4, 5, 1, 3, 9];
+
+function linearSearch(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == target) {
+      return i;
+    }
+  }
+  return -1;
 }
-console.log(fibonacci(5));
-console.log(fibonacci(6));
-console.log(fibonacci(7));
+
+let result = linearSearch(arr, 15);
+console.log("Element found at index", result);
